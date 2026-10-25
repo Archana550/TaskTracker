@@ -56,5 +56,70 @@ def add_task(description):
 def update_task(task_id, new_description):
     tasks = load_tasks()
 
-add_task("Learn Python")
-add_task("Practice SQL")
+    for task in tasks:
+        if task["id"] == task_id:
+            task["description"] = new_description
+            task["updatedAt"] = datetime.now().isoformat()
+            save_tasks(tasks)
+            print(f"Task updated successfully (ID: {task_id})")
+            return True
+
+    print(f"Task not found (ID:{task_id})")
+    return False       
+
+
+def list_tasks(status=None):
+    tasks = load_tasks()
+
+    filtered_tasks = [
+        task for task in tasks
+        if status is None or task["status"] == status
+    ]
+
+    if not filtered_tasks:
+        print("No tasks found.")
+        return
+
+    for task in filtered_tasks:
+        print(
+            f'ID: {task["id"]} | '
+            f'Description: {task["description"]} | '
+            f'Status: {task["status"]} | '
+            f'Created: {task["createdAt"]} | '
+            f'Updated: {task["updatedAt"]}'
+        )
+ 
+
+def delete_task(task_id):
+   tasks = load_tasks()
+  
+   remaining_tasks = [
+       task for task in tasks
+       if task["id"]!= task_id
+   ]
+
+   if len(remaining_tasks) == len(tasks):
+       return False
+   
+   save_tasks(remaining_tasks)
+   return True
+               
+
+def mark_task(task_id, status):
+    if status not in ("in-progress", "done"):
+        print("Invalid status. Use 'in-progress' or 'done")
+        return False
+    tasks = load_tasks()
+
+    for task in tasks:
+        if task["id"] ==task_id:
+            task["status"] = status
+            task["updatedAt"] = datetime.now().isoformat()
+            save_tasks(tasks)
+            print(f"Task marked as {status} (ID: {task_id})")
+            return True
+    print(f"Task not found (ID:{task_id})")
+    return False
+
+
+
