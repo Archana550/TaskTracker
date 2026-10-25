@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "description": "Learn Python",
+        "status": "todo",
+        "createdAt": "2026-10-21T12:20:14.990225",
+        "updatedAt": "2026-10-21T12:20:14.990225"
+    },
+    {
+        "id": 2,
+        "description": "Practice SQL",
+        "status": "todo",
+        "createdAt": "2026-10-21T12:20:15.027506",
+        "updatedAt": "2026-10-21T12:20:15.027506"
+    },
+    {
+        "id": 3,
+        "description": "Learn Python",
+        "status": "todo",
+        "createdAt": "2026-10-21T12:22:19.176991",
+        "updatedAt": "2026-10-21T12:22:19.176991"
+    },
+    {
+        "id": 4,
+        "description": "Practice SQL",
+        "status": "todo",
+        "createdAt": "2026-10-21T12:22:19.189255",
+        "updatedAt": "2026-10-21T12:22:19.189255"
+    }
+]
